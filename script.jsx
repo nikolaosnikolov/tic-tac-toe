@@ -20,8 +20,13 @@ const Square = ({ id, player }) => {
 const Board = () => {
     const [player, setPlayer] = React.useState(1);
     const [mounted, setMounted] = React.useState(true)
+    const [random, setRandom] = React.useState(0)
     let status = `Player ${player}`;
     const toggle = () => setMounted(!mounted)
+    const reRender = () => {
+        console.log('vhdjhvds')
+        setRandom(Math.random())
+    }
     const renderSquare = (i) => {
         return <Square id={i} player={player}></Square>
     }
@@ -34,6 +39,7 @@ const Board = () => {
             </div>
             <div id="info">
                 <button onClick={toggle}>Show/Hide Row</button>
+                <button onClick={reRender}>Re-render</button>
                 <h1>{status}</h1>
             </div>
         </div>
