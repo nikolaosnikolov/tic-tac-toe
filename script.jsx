@@ -4,12 +4,17 @@ const Square = ({ id, player }) => {
     const getRandomColor = () => {
         return palet[Math.floor(Math.random() * 3)]
     }
+    React.useEffect(() => {
+        console.log(`Render ${id}`)
+        return () => console.log(`unmounting Square ${id}`)
+    })
 
     return (
         <button
             onClick={(e) => {
-                setColor(getRandomColor())
-                e.target.style.background = color;
+                let myColor = getRandomColor()
+                setColor(myColor)
+                e.target.style.background = myColor;
             }}
         >
             <h1>{player}</h1>
